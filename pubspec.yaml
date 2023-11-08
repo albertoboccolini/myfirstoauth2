@@ -4,7 +4,7 @@ version: 1.0.0
 repository: https://github.com/albertoboccolini/myfirstoauth2
 
 environment:
-  sdk: ">=3.2.0-134.0.dev <4.0.0"
+  sdk: 3.1.5
   flutter: ">=1.17.0"
 
 dependencies:
