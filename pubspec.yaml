@@ -1,6 +1,6 @@
 name: myfirstoauth2
 description: "A flutter package for beginners to easly authenticate via OAuth2 using OAuth2 packages."
-version: 0.0.1
+version: 1.0.0
 repository: https://github.com/albertoboccolini/myfirstoauth2
 
 environment:

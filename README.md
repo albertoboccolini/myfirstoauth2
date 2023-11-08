@@ -14,7 +14,7 @@ To get started, set up your Google Cloud project and get the following informati
 - `googleClientSecret`: The Client Secret provided by the Google Cloud development console for your project.
 - `googleScopes`: A list of strings representing the **[access scopes](https://developers.google.com/identity/protocols/oauth2/scopes)** needed for your specific use case.
 - `redirectUrl`: The authorized redirect URL specified in your Google project settings.
-- `listenPort`: The port on which the local server will listen for OAuth2 redirection.
+- `listenPort`: The port on the local server will listen for OAuth2 redirection.
 
 ## Dependencies
 
