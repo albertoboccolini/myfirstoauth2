@@ -34,12 +34,20 @@ class MyFirstOauth2Example extends StatelessWidget {
   const MyFirstOauth2Example({Key? key}) : super(key: key);
 
   Future<void> _authWithMyFirstOauth2() async {
+    // creates a new MyFirstGoogleClient object
+    // with the parameters entered by the user
+    // and provides access to the createGoogleClient method.
     MyFirstGoogleClient myFirstGoogleClientObject = MyFirstGoogleClient(
         "googleClientId",
         "googleClientSecret",
         ["googleScope1", "googleScope2", ...],
         Uri.parse("http://localhost"),
         8080);
+    // the method createGoogleClient return an
+    // AutoRefreshingAuthClient which allows
+    // to easly make HTTP requests to Google APIs using
+    // the Google Client methods and which automatically
+    // handle the renewal of credentials using the refresh_token.
     var myFirstGoogleClient =
         await myFirstGoogleClientObject.createGoogleClient();
   }

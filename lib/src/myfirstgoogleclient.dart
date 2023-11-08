@@ -17,6 +17,8 @@ class MyFirstGoogleClient {
   );
 
   Future<bool> redirectFunction(redirectUrl) async {
+    // adding the access_type=offline parameter
+    // to the URL to request an OAuth2 token that includes refresh_token.
     if (await canLaunchUrl(Uri.parse("$redirectUrl&access_type=offline"))) {
       return launchUrl(Uri.parse("$redirectUrl&access_type=offline"));
     }
@@ -24,11 +26,11 @@ class MyFirstGoogleClient {
   }
 
   Future<AutoRefreshingAuthClient> createGoogleClient() async {
-    var oauth2 = await clientViaUserConsent(
+    var oauth2Client = await clientViaUserConsent(
         ClientId(googleClientId, googleClientSecret),
         googleScopes,
         redirectFunction,
         listenPort: listenPort);
-    return oauth2;
+    return oauth2Client;
   }
 }
