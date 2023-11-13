@@ -2,7 +2,7 @@
 
 A flutter package for beginners to easly authenticate via OAuth2 using OAuth2 packages and making authorized HTTP requests with the user's OAuth2 credentials.
 
-![myfirstoauth2image](./images/myfirstoauth2.png)
+![myfirstoauth2image](https://raw.githubusercontent.com/albertoboccolini/myfirstoauth2/main/images/myfirstoauth2.png)
 
 ## About myfirstoauth2
 
