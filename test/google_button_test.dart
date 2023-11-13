@@ -8,11 +8,13 @@ void main() {
       debugPrint("helloWorld");
     }
 
-    var myFirstGoogleButton = MyFirstGoogleButton(
+    var myFirstGoogleButton = GoogleButton(
       onPressed: foo,
     );
     expect(myFirstGoogleButton.width, isA<double>());
     expect(myFirstGoogleButton.height, isA<double>());
+    expect(myFirstGoogleButton.title, isA<String>());
+    expect(myFirstGoogleButton.iconUrl, isA<String>());
     expect(myFirstGoogleButton.onPressed, isA<VoidCallback>());
   });
 }

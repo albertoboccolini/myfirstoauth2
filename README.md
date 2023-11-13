@@ -1,11 +1,26 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pub package](https://img.shields.io/badge/pub-v0.0.1-blue)](https://pub.dev/packages/myfirstoauth2) [![package publisher](https://img.shields.io/badge/publisher-albertoboccolini-blue)](https://pub.dev/packages/myfirstoauth2/publisher)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pub package](https://img.shields.io/badge/pub-v1.0.1-blue)](https://pub.dev/packages/myfirstoauth2) [![package publisher](https://img.shields.io/badge/publisher-albertoboccolini-blue)](https://pub.dev/packages/myfirstoauth2/publisher)
 
 A flutter package for beginners to easly authenticate via OAuth2 using OAuth2 packages and making authorized HTTP requests with the user's OAuth2 credentials.
+
+![myfirstoauth2image](./images/myfirstoauth2.png)
+
 ## About myfirstoauth2
 
-myfirstoauth2 is designed to provide a simple and intuitive OAuth2 authentication solution for beginners. It simplifies the authentication process by integrating seamlessly with OAuth2 packages, making it easier for developers new to Flutter to implement secure authentication mechanisms. With this package you can easily set up OAuth2 authentication in your Flutter applications, allowing your users to securely log in to their accounts and services, all while maintaining a smooth and intuitive user experience.
+myfirstoauth2 is designed to provide a simple and intuitive OAuth2 clients solution for beginners. It simplifies the authentication process by integrating seamlessly with OAuth2 packages and offering clients with simple functions for using REST APIs, making it easier for developers new to Flutter to implement secure authentication mechanisms. With this package you can easily set up OAuth2 authentication in your Flutter applications, allowing your users to securely log in to their accounts and services, all while maintaining a smooth and intuitive user experience.
 
 Additionally, it offers a range of pre-built widgets for creating OAuth login buttons, making it even more convenient to implement social login functionality and improve the user onboarding experience in your Flutter projects.
+## Dependencies
+
+```yaml
+  url_launcher: ^6.2.1
+  googleapis: ^11.4.0
+  googleapis_auth: ^1.4.1
+  github: ^9.19.0
+  http: ^1.1.0
+```
+## Advice
+
+It is highly advisable to utilize localhost with port 8080 in the "Redirect URL" field while generating application credentials on the API service side (such as Google Cloud, GitHub, etc.). This is due to the redirection process during OAuth2 creation, where the client will locally listen on that specific port to acquire the authentication code. Subsequently, the OAuth2 client creation function will redirect to the designated site specified as the "redirectUrl" parameter during object creation.
 ## MyFirstGoogleClient (Getting Started)
 
 To get started, set up your Google Cloud project and get the following information:
@@ -13,16 +28,6 @@ To get started, set up your Google Cloud project and get the following informati
 - `googleClientId`: The Client ID provided by the Google Cloud development console for your project.
 - `googleClientSecret`: The Client Secret provided by the Google Cloud development console for your project.
 - `googleScopes`: A list of strings representing the **[access scopes](https://developers.google.com/identity/protocols/oauth2/scopes)** needed for your specific use case.
-- `redirectUrl`: The authorized redirect URL specified in your Google project settings.
-- `listenPort`: The port on the local server will listen for OAuth2 redirection.
-
-## Dependencies
-
-```yaml
-  url_launcher: ^6.2.1
-  googleapis: ^11.4.0
-  googleapis_auth: ^1.4.1
-```
 ## Usage
 
 ```dart
@@ -37,7 +42,7 @@ class MyFirstOauth2Example extends StatelessWidget {
     // creates a new MyFirstGoogleClient object
     // with the parameters entered by the user
     // and provides access to the createGoogleClient method.
-    MyFirstGoogleClient myFirstGoogleClientObject = MyFirstGoogleClient(
+    OAuth2 myFirstOAuth2 = OAuth2(
         "googleClientId",
         "googleClientSecret",
         ["googleScope1", "googleScope2", ...],
@@ -48,8 +53,10 @@ class MyFirstOauth2Example extends StatelessWidget {
     // to easly make HTTP requests to Google APIs using
     // the Google Client methods and which automatically
     // handle the renewal of credentials using the refresh_token.
-    var myFirstGoogleClient =
-        await myFirstGoogleClientObject.createGoogleClient();
+    GoogleClient myFirstGoogleClient =
+        await myFirstOAuth2.createGoogleClient();
+    var response =
+        await myFirstGoogleClient.getDataset("PROJECT_NAME", "DATASET_NAME");
   }
 
   @override
