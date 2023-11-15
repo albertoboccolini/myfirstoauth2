@@ -108,7 +108,7 @@ class MyFirstOauth2Example extends StatelessWidget {
     GitHubClient myFirstGoogleClient =
         await myFirstOAuth2.createGitHubClient();
     var response =
-        await myFirstGoogleClient.getRep("OWNER", "REPO_NAME");
+        await myFirstGoogleClient.getRepo("OWNER", "REPO_NAME");
   }
 
   @override
