@@ -21,7 +21,7 @@ Additionally, it offers a range of pre-built widgets for creating OAuth login bu
 ## Advice
 
 It is highly advisable to utilize localhost with port 8080 in the "Redirect URL" field while generating application credentials on the API service side (such as Google Cloud, GitHub, etc.). This is due to the redirection process during OAuth2 creation, where the client will locally listen on that specific port to acquire the authentication code. Subsequently, the OAuth2 client creation function will redirect to the designated site specified as the "redirectUrl" parameter during object creation.
-## MyFirstGoogleClient (Getting Started)
+## Google Client (Getting Started)
 
 To get started, set up your Google Cloud project and get the following information:
 
@@ -39,7 +39,7 @@ class MyFirstOauth2Example extends StatelessWidget {
   const MyFirstOauth2Example({Key? key}) : super(key: key);
 
   Future<void> _authWithMyFirstOauth2() async {
-    // creates a new MyFirstGoogleClient object
+    // creates a new OAuth2 object
     // with the parameters entered by the user
     // and provides access to the createGoogleClient method.
     OAuth2 myFirstOAuth2 = OAuth2(
@@ -49,7 +49,7 @@ class MyFirstOauth2Example extends StatelessWidget {
         Uri.parse("http://localhost"),
         8080);
     // the method createGoogleClient return an
-    // AutoRefreshingAuthClient which allows
+    // istance of GoogleClient which allows
     // to easly make HTTP requests to Google APIs using
     // the Google Client methods and which automatically
     // handle the renewal of credentials using the refresh_token.
@@ -63,10 +63,63 @@ class MyFirstOauth2Example extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: const MyFirstGoogleButton(
+        child: const GoogleButton(
           title: 'Log-in with Google',
           height: 300.0,
           width: 50.0,
+          onPressed: _authWithMyFirstOauth2,
+        ),
+      ),
+    );
+  }
+}
+```
+## GitHub Client (Getting Started)
+
+To get started, set up your GitHub developer application and get the following information:
+
+- `githubClientId`: The Client ID provided by the GitHub developer settings for your project.
+- `githubClientSecret`: The Client Secret provided by the GitHub developer settings for your project.
+- `githubScopes`: A list of strings representing the **[access scopes](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)** needed for your specific use case.
+## Usage
+
+```dart
+
+import 'package:flutter/material.dart';
+import 'package:myfirstoauth2/myfirstoauth2.dart';
+
+class MyFirstOauth2Example extends StatelessWidget {
+  const MyFirstOauth2Example({Key? key}) : super(key: key);
+
+  Future<void> _authWithMyFirstOauth2() async {
+    // creates a new OAuth2 object
+    // with the parameters entered by the user
+    // and provides access to the createGitHubClient method.
+    OAuth2 myFirstOAuth2 = OAuth2(
+        "githubClientId",
+        "githubClientSecret",
+        ["githubScope1", "githubScope2", ...],
+        Uri.parse("http://localhost"),
+        8080);
+    // the method createGitHubClient return an
+    // istance of GitHubClient which allows
+    // to easly make HTTP requests to GitHub APIs using
+    // the GitHubClient methods.
+    GitHubClient myFirstGoogleClient =
+        await myFirstOAuth2.createGitHubClient();
+    var response =
+        await myFirstGoogleClient.getRep("OWNER", "REPO_NAME");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: const GitHubButton(
+          title: 'Log-in with GitHub',
+          height: 300.0,
+          width: 50.0,
+          darkMode: true,
           onPressed: _authWithMyFirstOauth2,
         ),
       ),
