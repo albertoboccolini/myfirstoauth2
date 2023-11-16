@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:myfirstoauth2/myfirstoauth2.dart';
 
 void main() {
-  var myFirstOAuth2Access = MyFirstOAuth2("", "", [""], Uri.parse(""), 8080);
+  var myFirstOAuth2Access = OAuth2("", "", [""], Uri.parse(""), 8080);
   TestWidgetsFlutterBinding.ensureInitialized();
   test('create object', () {
     expect(myFirstOAuth2Access.clientId, isA<String>());

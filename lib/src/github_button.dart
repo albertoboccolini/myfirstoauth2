@@ -9,7 +9,7 @@ class GitHubButton extends StatefulWidget {
   final VoidCallback? onPressed;
 
   const GitHubButton({
-    Key? key,
+    super.key,
     this.height = 50.0,
     this.width = 300.0,
     this.title = "Sign-in with GitHub",
@@ -17,7 +17,7 @@ class GitHubButton extends StatefulWidget {
         "https://icons.veryicon.com/png/o/miscellaneous/mirror-icon/github-65.png",
     this.darkMode = false,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   State<GitHubButton> createState() => _GitHubButtonState();

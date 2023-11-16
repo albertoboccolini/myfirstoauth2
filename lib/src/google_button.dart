@@ -8,14 +8,14 @@ class GoogleButton extends StatefulWidget {
   final VoidCallback onPressed;
 
   const GoogleButton({
-    Key? key,
+    super.key,
     this.height = 50.0,
     this.width = 300.0,
     this.title = "Sign-in with Google",
     this.iconUrl =
         "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png",
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   State<GoogleButton> createState() => _GoogleButtonState();

@@ -4,14 +4,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 import 'package:github/github.dart';
 
-class MyFirstOAuth2 {
+class OAuth2 {
   final String clientId;
   final String clientSecret;
   final List<String> scopes;
   final Uri redirectUrl;
   final int listenPort;
 
-  MyFirstOAuth2(this.clientId, this.clientSecret, this.scopes, this.redirectUrl,
+  OAuth2(this.clientId, this.clientSecret, this.scopes, this.redirectUrl,
       this.listenPort);
 
   Future<String> _githubAuthRedirect(authUrl) async {
