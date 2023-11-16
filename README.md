@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pub package](https://img.shields.io/badge/pub-v1.0.1-blue)](https://pub.dev/packages/myfirstoauth2) [![package publisher](https://img.shields.io/badge/publisher-albertoboccolini-blue)](https://pub.dev/packages/myfirstoauth2/publisher)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![pub package](https://img.shields.io/badge/pub-v1.0.2-blue)](https://pub.dev/packages/myfirstoauth2) [![package publisher](https://img.shields.io/badge/publisher-wearecoders.it-blue)](https://pub.dev/packages/myfirstoauth2/publisher)
 
 A flutter package for beginners to easly authenticate via OAuth2 using OAuth2 packages and making authorized HTTP requests with the user's OAuth2 credentials.
 
