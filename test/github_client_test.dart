@@ -54,6 +54,24 @@ Future<void> main() async {
         isA<Future<Response>>());
   });
 
+  test('check if automated security fixes are enabled for a repository.', () {
+    expect(
+        githubClient.checkAutomatedSecurityFixes(client.auth.username!, "hello-world"),
+        isA<Future<Response>>());
+  });
+
+  test('enable automated security fixes for a repository.', () {
+    expect(
+        githubClient.enableAutomatedSecurityFixes(client.auth.username!, "hello-world"),
+        isA<Future<Response>>());
+  });
+
+  test('disable automated security fixes for a repository.', () {
+    expect(
+        githubClient.disableAutomatedSecurityFixes(client.auth.username!, "hello-world"),
+        isA<Future<Response>>());
+  });
+
   test('get repository contributors', () {
     expect(
         githubClient.listRepoContributors(client.auth.username!, "hello-world"),

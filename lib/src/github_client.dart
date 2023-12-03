@@ -78,6 +78,39 @@ class GitHubClient {
         headers: {"Authorization": client.auth.authorizationHeaderValue()!});
   }
 
+  /// Check if automated security fixes are enabled for a repository.
+  ///
+  /// GitHub App Permissions: https://docs.github.com/en/rest/overview/permissions-required-for-github-apps
+  ///
+  /// API docs: https://docs.github.com/en/rest/repos/repos#check-if-automated-security-fixes-are-enabled-for-a-repository
+  Future<Response> checkAutomatedSecurityFixes(String owner, String repository){
+    return client.client.get(
+        Uri.parse("$_gitHubBaseUrl/repos/$owner/$repository/aautomated-security-fixes"),
+        headers: {"Authorization": client.auth.authorizationHeaderValue()!});
+  }
+
+  /// Enable automated security fixes for a repository.
+  ///
+  /// GitHub App Permissions: https://docs.github.com/en/rest/overview/permissions-required-for-github-apps
+  ///
+  /// API docs: https://docs.github.com/en/rest/repos/repos#enable-automated-security-fixes
+  Future<Response> enableAutomatedSecurityFixes(String owner, String repository){
+    return client.client.put(
+        Uri.parse("$_gitHubBaseUrl/repos/$owner/$repository/aautomated-security-fixes"),
+        headers: {"Authorization": client.auth.authorizationHeaderValue()!});
+  }
+
+  /// Disable automated security fixes for a repository.
+  ///
+  /// GitHub App Permissions: https://docs.github.com/en/rest/overview/permissions-required-for-github-apps
+  ///
+  /// API docs: https://docs.github.com/en/rest/repos/repos#disable-automated-security-fixes
+  Future<Response> disableAutomatedSecurityFixes(String owner, String repository){
+    return client.client.delete(
+        Uri.parse("$_gitHubBaseUrl/repos/$owner/$repository/aautomated-security-fixes"),
+        headers: {"Authorization": client.auth.authorizationHeaderValue()!});
+  }
+
   /// Return all repository contributors.
   ///
   /// GitHub App Permissions: https://docs.github.com/en/rest/overview/permissions-required-for-github-apps
