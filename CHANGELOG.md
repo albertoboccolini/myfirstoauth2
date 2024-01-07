@@ -1,3 +1,8 @@
+# Version 1.0.3
+
+## GitHubClient
+- Added methods to call all `repositories` REST API endpoints.
+
 # Version 1.0.2
 
 ## OAuth2
