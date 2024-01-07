@@ -76,7 +76,7 @@ class MyFirstOauth2Example extends StatelessWidget {
 ```
 ## GitHub Client (Getting Started)
 
-To get started, set up your GitHub developer application and get the following information:
+To get started, set up your **[GitHub developer application](https://github.com/settings/apps/new)** and get the following information:
 
 - `githubClientId`: The Client ID provided by the GitHub developer settings for your project.
 - `githubClientSecret`: The Client Secret provided by the GitHub developer settings for your project.
