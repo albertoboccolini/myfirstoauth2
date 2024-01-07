@@ -94,7 +94,7 @@ Future<void> main() async {
   });
 
   test('get repository topics', () {
-    expect(githubClient.listRepoTopics(client.auth.username!, "hello-world"),
+    expect(githubClient.getRepoTopics(client.auth.username!, "hello-world"),
         isA<Future<Response>>());
   });
 
